@@ -1,12 +1,16 @@
 import express from 'express';
-import route from './routes/patientRoute.js';
+import PacientRoute from './routes/patientRoute.js';
+import DoctorRoute from './routes/doctorRoute.js'
+import AppointmentRoute from './routes/appointment.js';
 import bodyParser from 'body-parser';
 const app = express()
 
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.use('/api', route);
+app.use('/api', PacientRoute);
+app.use('/api', DoctorRoute)
+app.use('/appointment',AppointmentRoute)
 
 
 export default app;

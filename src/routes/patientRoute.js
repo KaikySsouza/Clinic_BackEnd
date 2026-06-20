@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { View, PacientCreate, PacientList, PacientListAll, Deletepacient } from "../controllers/patientController.js";
-const route = Router();
+const PacientRoute = Router();
 
  
-route.get('/patients', View);
-route.post('/patients', PacientCreate);
-route.get('/patients/list/:id', PacientList);
-route.get('/patients/list', PacientListAll);
-route.delete('/patients/delete/:id', Deletepacient);
+PacientRoute.get('/patients', View);
+PacientRoute.post('/patients', PacientCreate);
+PacientRoute.get('/patients/list/:id', PacientList);
+PacientRoute.get('/patients/list', PacientListAll);
+PacientRoute.delete('/patients/delete/:id', Deletepacient);
 
-export default route;
+export default PacientRoute;

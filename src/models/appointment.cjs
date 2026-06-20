@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       patientId: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: "Patients",
           key: "id",
@@ -27,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       doctorId: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: "Doctor",
           key: "id",
@@ -36,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       appointmentDate: {
         type: DataTypes.DATE,
+        allowNull: false,
       },
       status: {
         type: DataTypes.STRING,
