@@ -20,9 +20,9 @@ export const AppointmentCreate = async (req, res) => {
             appointmentDate,
             status,
         })
-            res.status(200).json(appoint)
+         await res.status(200).json(appoint)
     }catch(error) {
-        res.status(400).json({error: error.message})
+       await res.status(400).json({error: error.message})
     }
 }
 
@@ -30,9 +30,9 @@ export const AppointmentCreate = async (req, res) => {
 export const ShowAppointments = async (req, res) => {
     try {
         const appoint = await Appointment.findAll()
-        res.status(200).json(appoint)
+       await res.status(200).json(appoint)
     }catch(error){
-        res.send(400).json({error: error.message})
+       await res.send(400).json({error: error.message})
     }
 }
 
@@ -47,9 +47,9 @@ export const UpdateAppointment = async (req, res) => {
             status
 
         }, {where: {id: req.params.id}, returning: true})
-    res.status(200).json(appoint)
+      await res.status(200).json(appoint)
     }catch(error) {
-        res.send(400).json({error: error.message})
+       await res.send(400).json({error: error.message})
     }
 
 }
@@ -58,9 +58,9 @@ export const UpdateAppointment = async (req, res) => {
 export const DeleteAppoint = async (req, res) => {
     try { 
     const appoint = await Appointment.destroy({where: {id: req.params.id}, returning: true})
-    res.status(200).json(appoint)
+   await res.status(200).json(appoint)
 } catch(error) {
-        res.status(400).json({error: error.message})
+      await  res.status(400).json({error: error.message})
      }
 
 }

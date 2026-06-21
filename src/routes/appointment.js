@@ -4,8 +4,8 @@ import { AppointmentCreate, DeleteAppoint, ShowAppointments, UpdateAppointment, 
 const AppointmentRoute = Router() 
 
 AppointmentRoute.get('/ViewAppointment', View)
-AppointmentRoute.post('/CreateAppoint', AppointmentCreate)
 AppointmentRoute.get('/ShowApppointments', ShowAppointments )
+AppointmentRoute.post('/CreateAppoint', AppointmentCreate)
 AppointmentRoute.put('/UpdateAppointment/:id', UpdateAppointment)
 AppointmentRoute.delete('/DeleteAppointment/:id', DeleteAppoint)
 

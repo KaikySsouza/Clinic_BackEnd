@@ -4,9 +4,9 @@ const PacientRoute = Router();
 
  
 PacientRoute.get('/patients', View);
-PacientRoute.post('/patients', PacientCreate);
 PacientRoute.get('/patients/list/:id', PacientList);
 PacientRoute.get('/patients/list', PacientListAll);
+PacientRoute.post('/patients', PacientCreate);
 PacientRoute.delete('/patients/delete/:id', Deletepacient);
 
 export default PacientRoute;
