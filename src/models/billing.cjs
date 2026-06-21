@@ -1,15 +1,14 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Billing extends Model {
     static associate(models) {
-      Billing.belongsTo(models.Patient, { foreignKey: 'patientId' });
+      Billing.belongsTo(models.Patient, { foreignKey: "patientId" });
     }
   }
-  Billing.init({
-       id: {
+  Billing.init(
+    {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -35,9 +34,11 @@ module.exports = (sequelize, DataTypes) => {
       payment_status: {
         type: DataTypes.STRING,
       },
-  }, {
-    sequelize,
-    modelName: 'Billing',
-  });
+    },
+    {
+      sequelize,
+      modelName: "Billing",
+    },
+  );
   return Billing;
 };

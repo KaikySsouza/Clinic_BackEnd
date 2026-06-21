@@ -1,15 +1,14 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Appointment extends Model {
     static associate(models) {
-      Appointment.belongsTo(models.Patient, { foreignKey: 'patientId' });
-      Appointment.belongsTo(models.Doctor, { foreignKey: 'doctorId' });
+      Appointment.belongsTo(models.Patient, { foreignKey: "patientId" });
+      Appointment.belongsTo(models.Doctor, { foreignKey: "doctorId" });
     }
   }
-  Appointment.init({
+  Appointment.init(
+    {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -43,9 +42,11 @@ module.exports = (sequelize, DataTypes) => {
       status: {
         type: DataTypes.STRING,
       },
-  }, {
-    sequelize,
-    modelName: 'Appointment',
-  });
+    },
+    {
+      sequelize,
+      modelName: "Appointment",
+    },
+  );
   return Appointment;
 };

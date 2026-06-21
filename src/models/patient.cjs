@@ -1,15 +1,14 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
     static associate(models) {
-      Patient.hasMany( models.Appointment, { foreignKey: 'patientId' });
-      Patient.hasMany( models.Billing, { foreignKey: 'patientId' });
+      Patient.hasMany(models.Appointment, { foreignKey: "patientId" });
+      Patient.hasMany(models.Billing, { foreignKey: "patientId" });
     }
   }
-  Patient.init({
+  Patient.init(
+    {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -40,9 +39,11 @@ module.exports = (sequelize, DataTypes) => {
       insurance_info: {
         type: DataTypes.STRING,
       },
-  }, {
-    sequelize,
-    modelName: 'Patient',
-  });
+    },
+    {
+      sequelize,
+      modelName: "Patient",
+    },
+  );
   return Patient;
 };
