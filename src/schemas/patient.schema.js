@@ -10,3 +10,13 @@ export const PatientSchema = z.object({ body: z.object({
     phone: z.string({ message: "Telefone é obrigatório" }),
     })
 })
+
+
+export const ViewPatientSchema = z.object({
+    params: z.object({
+        id: z.coerce.number("Digite apenas o ID do usuario")
+    .int("O ID precisa ser um número inteiro")
+    .positive("O ID precisa ser positivo")
+    })
+})
+

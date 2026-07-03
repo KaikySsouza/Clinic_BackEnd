@@ -4,10 +4,12 @@ export const CreateDoctorSchema = z.object({
   body: z.object({
     firstName: z.string("Digite o primeiro nome").min(3).max(8).optional(),
     lastName: z.string("Digite o sobre nome").min(3).max(8).optional(),
-    email: z.string().email({ message: "Precisa ser email!" }).min(8).max(20),
+    email: z.string().email({ message: "Precisa ser email!" }).min(8).max(100),
     schedule: z.string().optional(),
   }),
 });
+
+
 
 export const UpdateDoctorSchema = z.object({
   params: z.object({
@@ -17,6 +19,12 @@ export const UpdateDoctorSchema = z.object({
     schedule: z.string(),
   }),
 });
+
+export const DoctorViewAllSchema = z.object({
+  query: z.object({
+    firstName: z.string().trim(),
+  })
+})
 
 
 export const DoctorFindSchema = z.object({

@@ -6,10 +6,15 @@ import { where } from "sequelize";
 const { Doctor } = db;
 
 export const DoctorView = async (req, res) => {
+  console.log(req.query)
+  const {firstName} = req.query
   try {
-    const doctor = await Doctor.findAll();
+    const doctor = await Doctor.findAll({
+      where: 
+        firstName ? { firstName }  : {}
+  });
     res.status(200).json(doctor);
-    res.send(doctor);
+    
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
