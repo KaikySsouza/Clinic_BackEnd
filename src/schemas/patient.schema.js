@@ -20,3 +20,8 @@ export const ViewPatientSchema = z.object({
     })
 })
 
+export const ViewPatientAllSchema = z.object({
+    query: z.object({
+        firstName: z.string().trim(),
+    })
+})

@@ -38,8 +38,13 @@ export const PacientList = async (req, res) => {
 };
 
 export const PacientListAll = async (req, res) => {
+  const {firstName} = req.query
   try {
-    const patients = await Patient.findAll();
+    const patients = await Patient.findAll({
+      where:  
+        firstName ? {firstName} : {}
+      
+    });
     await res.status(200).json(patients);
   } catch (error) {
     await res.status(400).json({ error: error.message });
