@@ -26,8 +26,11 @@ export const AppointmentCreate = async (req, res) => {
 };
 
 export const ShowAppointments = async (req, res) => {
+  const { patientId } = req.query
   try {
-    const appoint = await Appointment.findAll();
+    const appoint = await Appointment.findAll({
+      where: patientId  ? {patientId} : {}
+    });
     await res.status(200).json(appoint);
   } catch (error) {
     await res.send(400).json({ error: error.message });
