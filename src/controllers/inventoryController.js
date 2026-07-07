@@ -24,8 +24,11 @@ export const CreateNewInventory = async (req, res) => {
 };
 
 export const ShowInventory = async (req, res) => {
+  const { itemName } = req.query
   try {
-    const inventory = await Inventory.findAll();
+    const inventory = await Inventory.findAll({
+      where: itemName ? {itemName} : {}
+    });
     await res.status(200).json(inventory);
   } catch (error) {
     res.status(400).json({ error: error.message });

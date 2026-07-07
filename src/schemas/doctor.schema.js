@@ -9,8 +9,6 @@ export const CreateDoctorSchema = z.object({
   }),
 });
 
-
-
 export const UpdateDoctorSchema = z.object({
   params: z.object({
     firstName: z.string("Digite o primeiro nome").min(3).max(8).optional(),
@@ -22,25 +20,24 @@ export const UpdateDoctorSchema = z.object({
 
 export const DoctorViewAllSchema = z.object({
   query: z.object({
-    firstName: z.string().trim(),
-  })
-})
-
+    firstName: z.string("Digite o nome do item").trim(),
+  }),
+});
 
 export const DoctorFindSchema = z.object({
-    params: z.object({
-        id: z.coerce.number("Digite apenas o ID do usuario")
-        .int("O ID precisa ser um número inteiro")
-        .positive("O ID precisa ser positivo"),
-    })
-})
-
+  params: z.object({
+    id: z.coerce
+      .number("Digite apenas o ID do usuario")
+      .int("O ID precisa ser um número inteiro")
+      .positive("O ID precisa ser positivo"),
+  }),
+});
 
 export const DoctorDeleteSchema = z.object({
   params: z.object({
-    id: z.coerce.number("Digite apenas o ID do usuario")
-    .int("O ID precisa ser um número inteiro")
-    .positive("O ID precisa ser positivo")
-  })
-})
-
+    id: z.coerce
+      .number("Digite apenas o ID do usuario")
+      .int("O ID precisa ser um número inteiro")
+      .positive("O ID precisa ser positivo"),
+  }),
+});
