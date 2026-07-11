@@ -26,7 +26,7 @@ export const UpdateBillingsSchema = z.object({
       .positive("Precisa ser um número positivo"),
     amount: z.string("Precisa ser um texto").trim(),
     billingDate: z.coerce.date("Data de cobrança inválida"),
-    payment_status: z.string("Status de pagamento inválida").trim(),
+    payment_status: z.enum('pendente', 'pago', 'atrasado',),
   }),
 });
 

@@ -32,7 +32,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
       },
       payment_status: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM('pendente','pago', 'atrasado'),
+        allowNull: false,
+        defaultValue: 'pendente'
       },
     },
     {
