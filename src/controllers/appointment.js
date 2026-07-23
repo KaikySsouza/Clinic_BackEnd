@@ -51,7 +51,7 @@ export const UpdateAppointment = async (req, res) => {
     );
     await res.status(200).json(appoint);
   } catch (error) {
-    await res.send(400).json({ error: error.message });
+    await res.status(400).json({ error: error.message });
   }
 };
 
